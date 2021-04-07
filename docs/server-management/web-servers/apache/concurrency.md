@@ -6,7 +6,7 @@ The MPMs are used to change the basic functionality of the web server. The MPM y
 
 1. Prefork MPM: Every request gets its own (memory-separated) process.
 2. Worker MPM: Multi-threaded Apache, uses threads instead of processes, is generally faster than prefork and might use less memory.
-3. Event MPM: threaded like the Worker MPM, but is designed to allow more requests to beserved simultaneously by passing off some processing work to supporting threads, freeing up the main threads to work on new requests.
+3. Event MPM: threaded like the Worker MPM, but is designed to allow more requests to be served simultaneously by passing off some processing work to supporting threads, freeing up the main threads to work on new requests.
 
 We need to install MPM Apache module to be able to serve lots of concurrent connections. You can use mpm_worker or mpm_event module for this, instead of mpm_prefork module which consumes a lot of memory.
 

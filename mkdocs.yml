@@ -1,1 +1,8 @@
 site_name: Dev Docs
+nav:
+  - Introduction: "index.md"
+  - Server Management:
+    - Introduction: "server-management/introduction.md"
+    - Web Servers:
+      - Secure Communication: "server-management/web-servers/ssl/setup.md"
+      - Apache: "server-management/web-servers/apache/concurrency.md"
