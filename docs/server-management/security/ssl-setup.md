@@ -103,11 +103,10 @@ First you will cd into the easy-rsa directory, then you will create and edit the
 Once the file is opened, paste in the following lines and edit each highlighted value to reflect your own organization info. 
 The important part here is to ensure that you do not leave any of the values blank:
 
-        ~/easy-rsa/vars
-        set_var EASYRSA_REQ_COUNTRY    "US"
-        set_var EASYRSA_REQ_PROVINCE   "NewYork"
-        set_var EASYRSA_REQ_CITY       "New York City"
-        set_var EASYRSA_REQ_ORG        "DigitalOcean"
+        set_var EASYRSA_REQ_COUNTRY    "Kenya"
+        set_var EASYRSA_REQ_PROVINCE   "Nairobi"
+        set_var EASYRSA_REQ_CITY       "Nairobi City"
+        set_var EASYRSA_REQ_ORG        "Organization name"
         set_var EASYRSA_REQ_EMAIL      "admin@example.com"
         set_var EASYRSA_REQ_OU         "Community"
         set_var EASYRSA_ALGO           "ec"
