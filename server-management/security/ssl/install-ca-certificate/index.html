@@ -121,6 +121,18 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#on-linux-machine" class="nav-link">On Linux machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#on-macos-machine" class="nav-link">On MacOS machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#on-andriod-phone" class="nav-link">On Andriod Phone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -148,7 +160,39 @@ Click on install certificate.</p>
 <img alt="Install Certificate Step 5" src="../../../../assets/ssl/install-certificate-step-5.png" /></p>
 <h3 id="step-6">Step 6</h3>
 <p>Once that is done click on the finish button and your certificate authorities' certificate will be installed.
-<img alt="Install Certificate Step 6" src="../../../../assets/ssl/install-certificate-step-6.png" /></p></div>
+<img alt="Install Certificate Step 6" src="../../../../assets/ssl/install-certificate-step-6.png" /></p>
+<h2 id="on-linux-machine">On Linux machine</h2>
+<p>Now that you have a copy of the ca.crt file on your second Linux system, it is time to import the certificate into its operating system certificate store.</p>
+<p>On Debian and Ubuntu based systems, run the following commands to import the certificate:</p>
+<pre><code class="language-bash">    cp /tmp/ca.crt /usr/local/share/ca-certificates/
+</code></pre>
+<pre><code class="language-bash">    update-ca-certificates
+</code></pre>
+<p>To import the CA Server’s certificate on CentOS, Fedora, or RedHat based system, copy and paste the file contents onto the system just like in the previous example in a file called /tmp/ca.crt. Next, you’ll copy the certificate into /etc/pki/ca-trust/source/anchors/, then run the update-ca-trust command.</p>
+<pre><code class="language-bash">    sudo cp /tmp/ca.crt /etc/pki/ca-trust/source/anchors/
+</code></pre>
+<pre><code class="language-bash">    update-ca-trust
+</code></pre>
+<h2 id="on-macos-machine">On MacOS machine</h2>
+<p>Double click the certificate file. Choose "System" from the keychain option. Then press "OK".
+<img alt="Install Certificate - MacOS Step 1" src="../../../../assets/ssl/mac_addcert01.png" /></p>
+<p>When the following window pops-up, click the "Always Trust" button.
+<img alt="Install Certificate - MacOS Step 2" src="../../../../assets/ssl/mac_addcert03.png" /></p>
+<p>Then you will notice that the certificate is added to the system entry.
+<img alt="Install Certificate - MacOS Step 3" src="../../../../assets/ssl/mac_addcert04.png" /></p>
+<h2 id="on-andriod-phone">On Andriod Phone</h2>
+<ol>
+<li>Your Android device will need to have a PIN set otherwise by default, you will not be able to install any certificates to the device. This can be found under Settings-&gt;Security-&gt;Screen Lock</li>
+<li>Click on the SSL certificate file</li>
+<li>On the "Name the certificate" screen gives the certificate a name and press the OK button.</li>
+</ol>
+<p>To ensure that the installed certificate is Trusted, perform the following steps.
+The exact location of the Trusted Credentials menu will depend on the version of Android the device is running.</p>
+<ol>
+<li>Open the Settings App on the device.</li>
+<li>Go to Security &gt; Trusted Credentials, and tap the User tab</li>
+<li>If the certificate is present in the list of User certificates, then the certificate installed correctly.</li>
+</ol></div>
             </div>
         </div>
 
