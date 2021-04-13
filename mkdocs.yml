@@ -3,7 +3,10 @@ nav:
   - Introduction: "index.md"
   - Server Management:
     - Introduction: "server-management/introduction.md"
-    - Security: 
-      - SSL/TSL: "server-management/security/ssl-setup.md"
+    - Security:
+      - Secure Linux Server: "server-management/security/secure-linux-server.md"
+      - SSL/TSL: 
+        - Setup: "server-management/security/ssl/ssl-setup.md"
+        - Install Certificate: "server-management/security/ssl/install-ca-certificate.md"
     - Web Servers:
       - Apache: "server-management/web-servers/apache/concurrency.md"
