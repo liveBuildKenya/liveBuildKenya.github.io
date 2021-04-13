@@ -24,7 +24,7 @@ Once that is done click on the finish button and your certificate authorities' c
 ![Install Certificate Step 6](../../../assets/ssl/install-certificate-step-6.png)
 
 ## On Linux machine
-Now that you have a copy of the ca.crt file on your second Linux system, it is time to import the certificate into its operating system certificate store.
+Have a copy of the ca.crt file on your second Linux system, it is time to import the certificate into its operating system certificate store.
 
 On Debian and Ubuntu based systems, run the following commands to import the certificate:
 
