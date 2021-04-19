@@ -217,7 +217,7 @@ update the contents to:
         #       ForceCommand cvs server
 
         #Permitted users
-        AllowUsers kscadminlive ianminara markmuigai
+        AllowUsers user1 user2 user3
 
         #SSH protocal to use
         Protocol 2
