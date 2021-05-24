@@ -10,3 +10,6 @@ nav:
         - Install Certificate: "server-management/security/ssl/install-ca-certificate.md"
     - Web Servers:
       - Apache: "server-management/web-servers/apache/concurrency.md"
+    - Kubernetes: 
+      - Setup: "server-management/kubernetes/setup.md"
+      - Image Deployment: "server-management/kubernetes/image-deployment.md"
