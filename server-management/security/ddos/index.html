@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Secure Linux Server - Dev Docs</title>
+        <title>DDOS - Dev Docs</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -49,7 +49,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="./" class="dropdown-item active">Secure Linux Server</a>
+    <a href="../secure-linux-server/" class="dropdown-item">Secure Linux Server</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">DDOS</a>
 </li>
             
   <li class="dropdown-submenu">
@@ -102,7 +106,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../introduction/" class="nav-link">
+                                <a rel="prev" href="../secure-linux-server/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -129,25 +133,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#secure-linux-server-from-hackers" class="nav-link">Secure Linux Server From Hackers</a>
+            <li class="nav-item" data-level="1"><a href="#ddos-attack" class="nav-link">DDoS attack</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#enable-automatic-updates" class="nav-link">Enable Automatic Updates</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#limited-user-account" class="nav-link">Limited User Account</a>
+            <li class="nav-item" data-level="2"><a href="#how-does-a-ddos-attack-work" class="nav-link">How does a DDoS attack work?</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#ssh-keys" class="nav-link">SSH Keys</a>
+            <li class="nav-item" data-level="2"><a href="#how-do-you-know-if-an-attack-is-happening" class="nav-link">How do you know if an attack is happening?</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#harden-ssh" class="nav-link">Harden SSH</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#firewall" class="nav-link">Firewall</a>
+            <li class="nav-item" data-level="2"><a href="#using-nginx-to-prevent-ddos-attacks" class="nav-link">Using NGINX to prevent DDoS Attacks</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -158,200 +154,93 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="secure-linux-server-from-hackers">Secure Linux Server From Hackers</h1>
-<p>Every server is vulnerable from hackers especially if you have not taken any action to prevent this from happening.
-So what can you do to protect yourself from a hacker?</p>
-<h2 id="enable-automatic-updates">Enable Automatic Updates</h2>
-<p>Most servers are hacked because they did not have any security updates. To update manually you first check your repositories for updates by running 
-the following command as the root user.</p>
-<pre><code class="language-bash">    apt update
+<h1 id="ddos-attack">DDoS attack</h1>
+<p>A distributed denial-of-service (DDoS) attack is a malicious attempt to disrupt legitimate traffic of a targeted server, service or network, by bombarding it with so much traffic from multiple machines.  Typically, the attacker tries to saturate a system with so many connections and requests until the server it is no longer able to accept new traffic, or becomes so slow that it is effectively unusable. DDoS attacks can cost an organization both time and money while their resources and services are inaccessible. Luckily, servers can be configured to fight back.</p>
+<h2 id="how-does-a-ddos-attack-work">How does a DDoS attack work?</h2>
+<p>A DDoS attack requires an attacker to gain control of a network of online machines in order to carry out an attack. Usually computers and other devices are infected with malware, turning each one into a bot. The attacker then has remote control over the group of bots, which is called a botnet. Once in control, an attacker can command their botnet to conduct DDoS on a target. In this case, the infected devices are also victims of the attack.</p>
+<p>When the IP address of a victim is targeted by the botnet, each bot will respond by sending a large number of requests or very large requests to the target, potentially causing the targeted server or network to overflow capacity, resulting in a denial-of-service to normal traffic. Because each bot is a legitimate Internet device, separating the attack traffic from normal traffic can be difficult.</p>
+<h2 id="how-do-you-know-if-an-attack-is-happening">How do you know if an attack is happening?</h2>
+<p>Symptoms of a DDoS attack can resemble non-malicious availability issues, such as technical problems with a particular network or a system administrator performing maintenance. However, the following symptoms could indicate a DoS or DDoS attack:</p>
+<ul>
+<li>
+<p>Unusually slow network performance</p>
+</li>
+<li>
+<p>Unavailability of a particular website</p>
+</li>
+<li>
+<p>Unable to access any website</p>
+</li>
+</ul>
+<p>The best way to detect and identify a DDoS attack would be via network traffic monitoring and analysis. Network traffic can be monitored via a firewall, intrusion detection system and system or application logs.</p>
+<h2 id="using-nginx-to-prevent-ddos-attacks">Using NGINX to prevent DDoS Attacks</h2>
+<p>Nginx, a highly popular server system for Unix machines, comes with enough built-in functionality to greatly limit the effectiveness of DDoS attacks. These features could handle a DDoS attack by regulating the incoming traffic and by controlling the traffic as it is proxied to backend services.</p>
+<h3 id="nginx-worker-connections">Nginx worker connections</h3>
+<p>One of the important parameters that we tweak is the number of worker process and number of worker connections in the Nginx configuration file /etc/nginx/nginx.conf.</p>
+<pre><code class="language-bash">events {
+    worker_connections 50000;
+}
 </code></pre>
-<p>To upgrade you run the command</p>
-<pre><code class="language-bash">    apt upgrade
+<p>This setting allows each of the worker process to handle up to 50000 connections.</p>
+<h3 id="limiting-requests-rate">Limiting requests rate</h3>
+<p>Among the many useful tactics worth trying for staving off DDoS attacks, one of the simplest and most effective is the limiting of incoming traffic rates. You can limit the rate at which NGINX accept incoming requests to a normal value for your service from a particular client IP address within a certain period.</p>
+<pre><code class="language-bash">limit_req_zone $binary_remote_addr zone=one:1m rate=30r/m;
+
+server {
+    location /wp_login.php {
+        limit_req zone=one;
+    }
+}
 </code></pre>
-<p>To install updates automatically you run:</p>
-<pre><code class="language-bash">    apt install unattended-upgrades
+<p>This example creates a memory area called one, that can hold up to 16,000 (1m) unique IPs, and the 30r/m means that only 30 requests per minute are allowed. Then, we use the limit_req directive to rate limit the connections to a particular location or file, in this case wp_login.php.</p>
+<h3 id="limiting-number-of-connections">Limiting number of connections</h3>
+<p>You can limit the number of connections that can be opened by a single client IP address</p>
+<pre><code class="language-bash">limit_conn_zone $binary_remote_addr zone=two:1m;
+
+server {
+    location / {
+        limit_conn two 10;
+    }
+}
 </code></pre>
-<p>to setup automatic upgrades you run:</p>
-<pre><code class="language-bash">    dpkg-reconfigure --priority=low unattended-upgrades
+<p>This example creates a memory zone called two to store requests for the specified key, in this case the client IP address, $binary_remote_addr. Then the limit_conn directive sets a maximum of 10 connections from each client IP address.</p>
+<h3 id="timeout-parameters">Timeout parameters</h3>
+<p>Slow connections can represent an attempt to keep connections open for a long time. As a result, the server can’t accept new connections.</p>
+<pre><code class="language-bash">server {
+    client_body_timeout 5s;
+    client_header_timeout 5s;
+}
 </code></pre>
-<h2 id="limited-user-account">Limited User Account</h2>
-<p>The root user has the ability to make damaging changes to your linux system. So lets limit the user account.
-As the root user run the following command:</p>
-<pre><code class="language-bash">    adduser &lt;username&gt;
+<p>In this example, the client_body_timeout directive defines how long Nginx is waiting between the writes of the client body and  client_header_timeout means how long Nginx is waiting between the writes of client header. Both are set to 5 seconds.</p>
+<h3 id="limit-requests-size">Limit requests size</h3>
+<p>Similarly, large buffer values or large HTTP requests size make DDoS attacks easier. So, we limit the following buffer values in the Nginx configuration file to mitigate DDoS attacks.</p>
+<pre><code class="language-bash">client_body_buffer_size 200K;
+client_header_buffer_size 2k;
+client_max_body_size 200k;
+large_client_header_buffers 3 1k;
 </code></pre>
-<p>Then add user to the sudo group</p>
-<pre><code class="language-bash">    usermod -aG sudo &lt;username&gt;
+<h3 id="blacklist-ip-adresses">Blacklist IP adresses</h3>
+<p>If you can identify the client IP addresses being used for an attack, you can blacklist them with the deny directive so that NGINX and NGINX Plus do not accept their connections or requests.</p>
+<pre><code class="language-bash">location / {
+    deny 123.123.123.3;
+    deny 123.123.123.0/24;
+}
 </code></pre>
-<h2 id="ssh-keys">SSH Keys</h2>
-<p>We will create an authentication key-pair and save it to the associated user:</p>
-<pre><code class="language-bash">    mkdir ~/.ssh &amp;&amp; chmod 700 ~/.ssh
+<h3 id="enable-sysctl-based-protection">Enable sysctl based protection</h3>
+<p>Additionally we can tweak kernel and system variables in our server. Edit the file /etc/sysctl.conf, and set these two lines to 1 like this:</p>
+<pre><code class="language-bash">net.ipv4.conf.all.rp_filter = 1
+net.ipv4.tcp_syncookies = 1
 </code></pre>
-<p>On your users machine run the following command to generate the key pair</p>
-<pre><code class="language-bash">    ssh-keygen -b 4096
+<p>The first parameter enables protection against IP spoofing, and the second allows TCP SYN cookie protection.</p>
+<h3 id="nginx-as-load-balancer">Nginx as load balancer</h3>
+<p>When Nginx is used as load balancer, it is possible to adjust parameters to limit the connections number for each server:</p>
+<pre><code class="language-bash">upstream domain {
+server 123.123.123.1:80 max_conns=100;
+server 123.123.123.2:80 max_conns=100;
+queue 20 timeout=10s;
+}
 </code></pre>
-<p>the copy the public key to the server</p>
-<p>Windows:</p>
-<pre><code class="language-bash">    scp $env:USERPROFILE/.ssh/id_rsa.pub &lt;username&gt;@&lt;server-address&gt;:&lt;path-to-authorized-keys&gt;
-</code></pre>
-<p>Linux:</p>
-<pre><code class="language-bash">    ssh-copy-id &lt;username&gt;@&lt;server-address&gt;
-</code></pre>
-<p>MacOS:</p>
-<pre><code class="language-bash">    scp ~/.ssh/id_rsa.pub &lt;username&gt;@&lt;server-address&gt;:&lt;path-to-authorized-keys&gt;
-</code></pre>
-<h2 id="harden-ssh">Harden SSH</h2>
-<p>We will stop the use of password to login to our server. We edit the file /etc/ssh/sshd_config</p>
-<p>First copy the file to a backup</p>
-<pre><code class="language-bash">    sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-</code></pre>
-<p>Then edit the file</p>
-<pre><code class="language-bash">    sudo nano /etc/ssh/sshd_config
-</code></pre>
-<p>update the contents to:</p>
-<pre><code>    #       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
-
-    # This is the sshd server system-wide configuration file.  See
-    # sshd_config(5) for more information.
-
-    # This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
-
-    # The strategy used for options in the default sshd_config shipped with
-    # OpenSSH is to specify options with their default value where
-    # possible, but leave them commented.  Uncommented options override the
-    # default value.
-
-    Include /etc/ssh/sshd_config.d/*.conf
-
-    Port 35020
-    #AddressFamily any
-    #ListenAddress 0.0.0.0
-    #ListenAddress ::
-
-    #HostKey /etc/ssh/ssh_host_rsa_key
-    #HostKey /etc/ssh/ssh_host_ecdsa_key
-    #HostKey /etc/ssh/ssh_host_ed25519_key
-
-    # Ciphers and keying
-    #RekeyLimit default none
-
-    # Logging
-    #SyslogFacility AUTH
-    #LogLevel INFO
-
-    # Authentication:
-
-    #LoginGraceTime 2m
-    PermitRootLogin no
-    #StrictModes yes
-    MaxAuthTries 4
-    #MaxSessions 10
-
-    #PubkeyAuthentication yes
-
-    # Expect .ssh/authorized_keys2 to be disregarded by default in future.
-    #AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
-
-    #AuthorizedPrincipalsFile none
-
-    #AuthorizedKeysCommand none
-    #AuthorizedKeysCommandUser nobody
-
-    # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
-    #HostbasedAuthentication no
-    # Change to yes if you don't trust ~/.ssh/known_hosts for
-    # HostbasedAuthentication
-    #IgnoreUserKnownHosts no
-    # Don't read the user's ~/.rhosts and ~/.shosts files
-    #IgnoreRhosts yes
-
-    # To disable tunneled clear text passwords, change to no here!
-    PasswordAuthentication no
-    PermitEmptyPasswords no
-
-    # Change to yes to enable challenge-response passwords (beware issues with
-    # some PAM modules and threads)
-    ChallengeResponseAuthentication no
-
-    # Kerberos options
-    #KerberosAuthentication no
-    #KerberosOrLocalPasswd yes
-    #KerberosTicketCleanup yes
-    #KerberosGetAFSToken no
-
-    # GSSAPI options
-    #GSSAPIAuthentication no
-    #GSSAPICleanupCredentials yes
-    #GSSAPIStrictAcceptorCheck yes
-    #GSSAPIKeyExchange no
-
-    # Set this to 'yes' to enable PAM authentication, account processing,
-    # and session processing. If this is enabled, PAM authentication will
-    # be allowed through the ChallengeResponseAuthentication and
-    # PasswordAuthentication.  Depending on your PAM configuration,
-    # PAM authentication via ChallengeResponseAuthentication may bypass
-    # the setting of "PermitRootLogin without-password".
-    # If you just want the PAM account and session checks to run without
-    # PAM authentication, then enable this but set PasswordAuthentication
-    # and ChallengeResponseAuthentication to 'no'.
-    UsePAM yes
-
-    #AllowAgentForwarding yes
-    #AllowTcpForwarding yes
-    #GatewayPorts no
-    X11Forwarding yes
-    #X11DisplayOffset 10
-    #X11UseLocalhost yes
-    #PermitTTY yes
-    PrintMotd no
-    #PrintLastLog yes
-    #TCPKeepAlive yes
-    #PermitUserEnvironment no
-    #Compression delayed
-    ClientAliveInterval 300
-    #ClientAliveCountMax 3
-    #UseDNS no
-    #PidFile /var/run/sshd.pid
-    #MaxStartups 10:30:100
-    #PermitTunnel no
-    #ChrootDirectory none
-    #VersionAddendum none
-
-    # no default banner path
-    #Banner none
-
-    # Allow client to pass locale environment variables
-    AcceptEnv LANG LC_*
-
-    # override default of no subsystems
-    Subsystem sftp  /usr/lib/openssh/sftp-server
-
-    # Example of overriding settings on a per-user basis
-    #Match User anoncvs
-    #       X11Forwarding no
-    #       AllowTcpForwarding no
-    #       PermitTTY no
-    #       ForceCommand cvs server
-
-    #Permitted users
-    AllowUsers user1 user2 user3
-
-    #SSH protocal to use
-    Protocol 2
-</code></pre>
-<p>Restart the ssh service:</p>
-<pre><code class="language-bash">    sudo service restart ssh
-</code></pre>
-<h2 id="firewall">Firewall</h2>
-<p>Check which ports are being used by the server:</p>
-<pre><code class="language-bash">    sudo ss -tupln
-</code></pre>
-<p>Then, check if your firewall is active:</p>
-<pre><code class="language-bash">    sudo ufw status
-</code></pre>
-<p>Allow the port that is enabled:</p>
-<pre><code class="language-bash">    sudo ufw allow &lt;port-number&gt;
-</code></pre></div>
+<p>Here the max_conns directive specifies the number of connections Nginx can open up for the server. The queue directive limits the number of requests that have been queued when all servers in this group have reached the connection limit. Finally, the timeout directive specifies how long a request can be retained in the queue.</p></div>
             </div>
         </div>
 
