@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Install Certificate - Dev Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Dev Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Introduction</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Server Management <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../introduction/" class="dropdown-item">Introduction</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Security</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../secure-linux-server/" class="dropdown-item">Secure Linux Server</a>
+</li>
+            
+<li>
+    <a href="../../ddos/" class="dropdown-item">DDOS</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SSL/TSL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../ssl-setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Install Certificate</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Web Servers</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../web-servers/apache/concurrency/" class="dropdown-item">Apache</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kubernetes</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../kubernetes/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../../kubernetes/image-deployment/" class="dropdown-item">Image Deployment</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../ssl-setup/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../../web-servers/apache/concurrency/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#install-certificate-authority-certificate" class="nav-link">Install Certificate Authority Certificate</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#on-windows-machine" class="nav-link">On Windows machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#on-linux-machine" class="nav-link">On Linux machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#on-macos-machine" class="nav-link">On MacOS machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#on-andriod-phone" class="nav-link">On Andriod Phone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="install-certificate-authority-certificate">Install Certificate Authority Certificate</h1>
+<h2 id="on-windows-machine">On Windows machine</h2>
+<h3 id="step-1">Step 1</h3>
+<p>Double click on the provided certificate which pops up the window below.
+<img alt="Install Certificate Step 1" src="../../../../assets/ssl/install-certificate-step-1.png" />
+Click on install certificate.</p>
+<h3 id="step-2">Step 2</h3>
+<p>Ensure the certificate will be stored on the current user account on the bellow wizard section
+<img alt="Install Certificate Step 2" src="../../../../assets/ssl/install-certificate-step-2.png" /></p>
+<h3 id="step-3">Step 3</h3>
+<p>Manually define where the certficate will be stored by selecting "Place all certificates in the followinf store"
+<img alt="Install Certificate Step 3" src="../../../../assets/ssl/install-certificate-step-3.png" /></p>
+<h3 id="step-4">Step 4</h3>
+<p>Select the browse button to define where the certificate will be stored
+<img alt="Install Certificate Step 4" src="../../../../assets/ssl/install-certificate-step-4.png" /></p>
+<h3 id="step-5">Step 5</h3>
+<p>Ensure you select the "Trusted Root Certificate Authorities" store.
+<img alt="Install Certificate Step 5" src="../../../../assets/ssl/install-certificate-step-5.png" /></p>
+<h3 id="step-6">Step 6</h3>
+<p>Once that is done click on the finish button and your certificate authorities' certificate will be installed.
+<img alt="Install Certificate Step 6" src="../../../../assets/ssl/install-certificate-step-6.png" /></p>
+<h2 id="on-linux-machine">On Linux machine</h2>
+<p>Have a copy of the ca.crt file on your second Linux system.</p>
+<p>On Debian and Ubuntu based systems, run the following commands to import the certificate:</p>
+<pre><code class="language-bash">    cp /tmp/ca.crt /usr/local/share/ca-certificates/
+</code></pre>
+<pre><code class="language-bash">    update-ca-certificates
+</code></pre>
+<p>To import the CA Server’s certificate on CentOS, Fedora, or RedHat based system, copy and paste the file contents onto the system just like in the previous example in a file called /tmp/ca.crt. Next, you’ll copy the certificate into /etc/pki/ca-trust/source/anchors/, then run the update-ca-trust command.</p>
+<pre><code class="language-bash">    sudo cp /tmp/ca.crt /etc/pki/ca-trust/source/anchors/
+</code></pre>
+<pre><code class="language-bash">    update-ca-trust
+</code></pre>
+<h2 id="on-macos-machine">On MacOS machine</h2>
+<p>Double click the certificate file. Choose "System" from the keychain option. Then press "OK".
+<img alt="Install Certificate - MacOS Step 1" src="../../../../assets/ssl/mac_addcert01.png" /></p>
+<p>When the following window pops-up, click the "Always Trust" button.
+<img alt="Install Certificate - MacOS Step 2" src="../../../../assets/ssl/mac_addcert03.png" /></p>
+<p>Then you will notice that the certificate is added to the system entry.
+<img alt="Install Certificate - MacOS Step 3" src="../../../../assets/ssl/mac_addcert04.png" /></p>
+<h2 id="on-andriod-phone">On Andriod Phone</h2>
+<ol>
+<li>Your Android device will need to have a PIN set otherwise by default, you will not be able to install any certificates to the device. This can be found under Settings-&gt;Security-&gt;Screen Lock</li>
+<li>Click on the SSL certificate file</li>
+<li>On the "Name the certificate" screen gives the certificate a name and press the OK button.</li>
+</ol>
+<p>To ensure that the installed certificate is Trusted, perform the following steps.
+The exact location of the Trusted Credentials menu will depend on the version of Android the device is running.</p>
+<ol>
+<li>Open the Settings App on the device.</li>
+<li>Go to Security &gt; Trusted Credentials, and tap the User tab</li>
+<li>If the certificate is present in the list of User certificates, then the certificate installed correctly.</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
