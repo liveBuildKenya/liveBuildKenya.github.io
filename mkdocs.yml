@@ -5,6 +5,7 @@ nav:
     - Introduction: "server-management/introduction.md"
     - Security:
       - Secure Linux Server: "server-management/security/secure-linux-server.md"
+      - DDOS: "server-management/security/ddos.md"
       - SSL/TSL: 
         - Setup: "server-management/security/ssl/ssl-setup.md"
         - Install Certificate: "server-management/security/ssl/install-ca-certificate.md"

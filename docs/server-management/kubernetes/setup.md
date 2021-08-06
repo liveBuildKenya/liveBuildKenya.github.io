@@ -8,9 +8,13 @@ Kubernetes (k8s) is a free and open-source container orchestration tool. It is u
 
 ## Lab Setup
 The foloowing are the details of my lab setup:
+
 - Machine 1 (Ubuntu 20.04 LTS Server) – kubemaster.com – 192.168.1.4
+
 - Machine 2 (Ubuntu 20.04 LTS Server) – kubeworkernode1.com – 192.168.1.5
+
 - Machine 3 (Ubuntu 20.04 LTS Server) – kubeworkernode2.com – 192.168.1.6
+
 
 ## Step 1 - Set the hostname and add entries on the /etc/hosts file
 On each of the machine set the hostname on each node.
@@ -105,8 +109,7 @@ To disable swap, edit /etc/fstab file and comment out the line which includes en
 ```bash
 sudo vi /etc/fstab
 ```
-
-![Disable swap](../../../assets/kubernetes/Swap-disable-Ubuntu-20-04-768x235.webp)
+![Disable swap](../../assets/kubernetes/Swap-disable-Ubuntu-20-04-768x235.webp)
 
 Save & exit the file
 
