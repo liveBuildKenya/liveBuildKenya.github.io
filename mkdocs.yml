@@ -16,4 +16,5 @@ nav:
       - Image Deployment: "server-management/kubernetes/image-deployment.md"
   - Database Management:
     - Postgres:
-      - Installation: "database-management/postgres/installation.md"
+      - Installation: "database-management/postgre/installation.md"
+      - Replication: "database-management/postgre/replication.md"
