@@ -17,4 +17,5 @@ nav:
   - Database Management:
     - Postgre:
       - Installation: "database-management/postgre/installation.md"
-      - Replication: "database-management/postgre/replication.md"
+      - Replication: 
+        - Streaming Replication: "database-management/postgre/replication.md"
