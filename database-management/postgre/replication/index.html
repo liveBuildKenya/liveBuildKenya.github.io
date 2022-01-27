@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Replication - Dev Docs</title>
+        <title>Streaming Replication - Dev Docs</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -109,9 +109,15 @@
     <a href="../installation/" class="dropdown-item">Installation</a>
 </li>
             
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Replication</a>
+    <ul class="dropdown-menu">
+            
 <li>
-    <a href="./" class="dropdown-item active">Replication</a>
+    <a href="./" class="dropdown-item active">Streaming Replication</a>
 </li>
+    </ul>
+  </li>
     </ul>
   </li>
                                 </ul>
@@ -151,12 +157,79 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#streaming-replication" class="nav-link">Streaming Replication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="streaming-replication">Streaming Replication</h1>
+<p>This setup assumes you have already installed postgres in two machines; One master server and a standby server.</p>
+<ul>
+<li>Verify the cluster exists in both servers</li>
+</ul>
+<pre><code class="language-bash">    sudo pg_lsclusters
+</code></pre>
+<ul>
+<li>To create a cluster run:</li>
+</ul>
+<pre><code class="language-bash">    sudo pg_createcluster &lt;version&gt; &lt;name&gt;
+</code></pre>
+<ul>
+<li>Configure the master cluster, edit the file /etc/postgresql/{version}/{cluster}/postgresql.conf</li>
+</ul>
+<pre><code class="language-bash">    wal_level = replica
+    wal_log_hints = on
+    max_wal_senders = 10 
+    wal_keep_segments = 64
+</code></pre>
+<ul>
+<li>Configure the access to the access file /etc/postgresql/{version}/{cluster}/pg_hba.conf</li>
+</ul>
+<pre><code class="language-bash">    host replication &lt;user&gt; md5
+</code></pre>
+<ul>
+<li>Create the replication user</li>
+</ul>
+<pre><code class="language-bash">    sudo -H -u postgres psql -c &quot;CREATE USER &lt;user&gt; WITH replication;&quot;
+    sudo -H -u postgres psql -c &quot;UPDATE USER &lt;user&gt; WITH ENCRYPTED PASSWORD &lt;password&gt;;&quot;
+</code></pre>
+<ul>
+<li>Restart the main cluster</li>
+</ul>
+<pre><code class="language-bash">    sudo systemctl restart postgresql@10-main
+</code></pre>
+<ul>
+<li>Configure Replica; edit the file /etc/postgresql/{version}/{cluster}/postgresql.conf</li>
+</ul>
+<pre><code class="language-bash">  wal_level = replica 
+  wal_log_hints = on  
+  max_wal_senders = 10 
+  wal_keep_segments = 64 
+  hot_standby = on 
+</code></pre>
+<ul>
+<li>Edit host based access file</li>
+</ul>
+<pre><code class="language-bash">    sudo nano /etc/postgresql/10/replica1/pg_hba.conf 
+</code></pre>
+<pre><code class="language-bash">  local replication &lt;user&gt; md5 
+</code></pre>
+<ul>
+<li>Setup standby replication; remove replica existing database files</li>
+</ul>
+<pre><code class="language-bash">    sudo su - postgres 
+    rm -rf /var/lib/postgresql/10/replica1 
+</code></pre>
+<ul>
+<li>Sync replica with main cluster</li>
+</ul>
+<pre><code class="language-bash">    pg_basebackup -D /var/lib/postgresql/10/replica1 -U rep_user -w -P -R # -X stream
+</code></pre></div>
             </div>
         </div>
 
