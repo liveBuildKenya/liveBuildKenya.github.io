@@ -186,11 +186,11 @@ diff /etc/postgresql/13/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
 </li>
 <li>
 <p>Stop the PostgreSQL service.</p>
-<pre><code>Stop the PostgreSQL service.
+<pre><code>sudo systemctl stop postgresql@&lt;version&gt;-&lt;cluster&gt;
 </code></pre>
 </li>
 <li>
-<p>Stop the PostgreSQL service.</p>
+<p>Switch to postgres user.</p>
 <pre><code>sudo su - postgres
 </code></pre>
 </li>
