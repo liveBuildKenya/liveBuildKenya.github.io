@@ -4,26 +4,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Dev Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Upgrade - Dev Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap.min.js" defer></script>
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Dev Docs</a>
+                <a class="navbar-brand" href="../../..">Dev Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -33,15 +33,15 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">Introduction</a>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Introduction</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Server Management <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="server-management/introduction/" class="dropdown-item">Introduction</a>
+    <a href="../../../server-management/introduction/" class="dropdown-item">Introduction</a>
 </li>
                                     
   <li class="dropdown-submenu">
@@ -49,11 +49,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="server-management/security/secure-linux-server/" class="dropdown-item">Secure Linux Server</a>
+    <a href="../../../server-management/security/secure-linux-server/" class="dropdown-item">Secure Linux Server</a>
 </li>
             
 <li>
-    <a href="server-management/security/ddos/" class="dropdown-item">DDOS</a>
+    <a href="../../../server-management/security/ddos/" class="dropdown-item">DDOS</a>
 </li>
             
   <li class="dropdown-submenu">
@@ -61,11 +61,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="server-management/security/ssl/ssl-setup/" class="dropdown-item">Setup</a>
+    <a href="../../../server-management/security/ssl/ssl-setup/" class="dropdown-item">Setup</a>
 </li>
             
 <li>
-    <a href="server-management/security/ssl/install-ca-certificate/" class="dropdown-item">Install Certificate</a>
+    <a href="../../../server-management/security/ssl/install-ca-certificate/" class="dropdown-item">Install Certificate</a>
 </li>
     </ul>
   </li>
@@ -77,7 +77,7 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="server-management/web-servers/apache/concurrency/" class="dropdown-item">Apache</a>
+    <a href="../../../server-management/web-servers/apache/concurrency/" class="dropdown-item">Apache</a>
 </li>
     </ul>
   </li>
@@ -87,17 +87,17 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="server-management/kubernetes/setup/" class="dropdown-item">Setup</a>
+    <a href="../../../server-management/kubernetes/setup/" class="dropdown-item">Setup</a>
 </li>
             
 <li>
-    <a href="server-management/kubernetes/image-deployment/" class="dropdown-item">Image Deployment</a>
+    <a href="../../../server-management/kubernetes/image-deployment/" class="dropdown-item">Image Deployment</a>
 </li>
     </ul>
   </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Database Management <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -106,7 +106,7 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="database-management/postgre/installation/" class="dropdown-item">Installation</a>
+    <a href="../installation/" class="dropdown-item">Installation</a>
 </li>
             
   <li class="dropdown-submenu">
@@ -114,13 +114,13 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="database-management/postgre/replication/" class="dropdown-item">Streaming Replication</a>
+    <a href="../replication/" class="dropdown-item">Streaming Replication</a>
 </li>
     </ul>
   </li>
             
 <li>
-    <a href="database-management/postgre/upgrade/" class="dropdown-item">Upgrade</a>
+    <a href="./" class="dropdown-item active">Upgrade</a>
 </li>
     </ul>
   </li>
@@ -135,12 +135,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href="../replication/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="server-management/introduction/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -162,13 +162,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#introduction" class="nav-link">Introduction</a>
+            <li class="nav-item" data-level="1"><a href="#upgrade-postgresql-from-13-to-14" class="nav-link">Upgrade PostgreSQL from 13 to 14</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#software" class="nav-link">Software</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#software-engineering" class="nav-link">Software Engineering</a>
+            <li class="nav-item" data-level="2"><a href="#pg_upgrade-tool" class="nav-link">pg_upgrade tool</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -179,24 +175,55 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="introduction">Introduction</h1>
-<p>It works! Why?</p>
-<p>The journey to master software development; Bumpy, no doubt. So, what is a software?</p>
-<h2 id="software">Software</h2>
-<p>A software is a computer program and other operating information used by a computer. A good software should deliver 
-the main required functionality.</p>
-<p>It should also:</p>
-<ol>
-<li>Be written in a way that can be adapted to changes</li>
-<li>Respond in a quick time</li>
-<li>Make efficient use of resources such as memory and processor time</li>
-<li>Be acceptable by the user it is built for.</li>
-</ol>
-<p>Now, what is software engineering?</p>
-<h2 id="software-engineering">Software Engineering</h2>
-<p>Software engineering is defined as a process of analyzing user requirements and then designing, building and testing 
-software application which will satisfy those requirements. It is the application of a systematic, disciplined, computable approach for the development, 
-operation and maintenance of software.</p></div>
+<h1 id="upgrade-postgresql-from-13-to-14">Upgrade PostgreSQL from 13 to 14</h1>
+<h2 id="pg_upgrade-tool">pg_upgrade tool</h2>
+<ul>
+<li>
+<p>Check if there are any differences in the config files.</p>
+<pre><code>diff /etc/postgresql/13/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf
+diff /etc/postgresql/13/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
+</code></pre>
+</li>
+<li>
+<p>Stop the PostgreSQL service.</p>
+<pre><code>Stop the PostgreSQL service.
+</code></pre>
+</li>
+<li>
+<p>Stop the PostgreSQL service.</p>
+<pre><code>sudo su - postgres
+</code></pre>
+</li>
+<li>
+<p>Check clusters (notice the --check argument, this will not change any data).</p>
+<pre><code>/usr/lib/postgresql/14/bin/pg_upgrade \
+--old-datadir=/var/lib/postgresql/13/main \
+--new-datadir=/var/lib/postgresql/14/main \
+--old-bindir=/usr/lib/postgresql/13/bin \
+--new-bindir=/usr/lib/postgresql/14/bin \
+--old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
+--new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
+--check
+</code></pre>
+</li>
+<li>
+<p>Migrate the data (without the --check argument).</p>
+<pre><code>/usr/lib/postgresql/14/bin/pg_upgrade \
+--old-datadir=/var/lib/postgresql/13/main \
+--new-datadir=/var/lib/postgresql/14/main \
+--old-bindir=/usr/lib/postgresql/13/bin \
+--new-bindir=/usr/lib/postgresql/14/bin \
+--old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
+--new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf'
+</code></pre>
+</li>
+<li>
+<p>Run the recommended vacuumdb command:</p>
+<pre><code>/usr/lib/postgresql/14/bin/vacuumdb --all --analyze-in-stages
+</code></pre>
+</li>
+</ul>
+<p>There is one important change in the default settings in PostgreSQL 14. Actually, you may have noticed it while checking the differences in the config files: password encryption. Previously it was MD5, now it is SHA256. So, if you have used the default configuration, your clients will not be able to connect to the new database. And since PostgreSQL does not know the original clear text passwords, you have to set them again for all your database users.</p></div>
             </div>
         </div>
 
@@ -205,11 +232,11 @@ operation and maintenance of software.</p></div>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "../../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -274,8 +301,3 @@ operation and maintenance of software.</p></div>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.2.3
-Build Date UTC : 2022-02-04 08:41:50.026840+00:00
--->
