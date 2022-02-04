@@ -7,9 +7,9 @@
 
 - Stop the PostgreSQL service.
 
-        Stop the PostgreSQL service.
+        sudo systemctl stop postgresql@<version>-<cluster>
 
-- Stop the PostgreSQL service.
+- Switch to postgres user.
 
         sudo su - postgres
 
