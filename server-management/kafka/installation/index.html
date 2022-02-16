@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Installation - Dev Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Dev Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Introduction</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Server Management <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../introduction/" class="dropdown-item">Introduction</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Security</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../security/secure-linux-server/" class="dropdown-item">Secure Linux Server</a>
+</li>
+            
+<li>
+    <a href="../../security/ddos/" class="dropdown-item">DDOS</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SSL/TSL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../security/ssl/ssl-setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../security/ssl/install-ca-certificate/" class="dropdown-item">Install Certificate</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Web Servers</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../web-servers/apache/concurrency/" class="dropdown-item">Apache</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kubernetes</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../kubernetes/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../kubernetes/image-deployment/" class="dropdown-item">Image Deployment</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kafka</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active">Installation</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Database Management <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Postgre</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../database-management/postgre/installation/" class="dropdown-item">Installation</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Replication</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../database-management/postgre/replication/" class="dropdown-item">Streaming Replication</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../database-management/postgre/upgrade/" class="dropdown-item">Upgrade</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../kubernetes/image-deployment/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../../database-management/postgre/installation/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#installing-kafka-on-ubuntu-2004" class="nav-link">Installing Kafka on Ubuntu 20.04</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-1-creating-a-user-for-kafka" class="nav-link">Step 1 — Creating a User for Kafka</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-2-downloading-and-extracting-the-kafka-binaries" class="nav-link">Step 2 — Downloading and Extracting the Kafka Binaries</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-3-configuring-the-kafka-server" class="nav-link">Step 3 — Configuring the Kafka Server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-4-creating-systemd-unit-files-and-starting-the-kafka-server" class="nav-link">Step 4 — Creating Systemd Unit Files and Starting the Kafka Server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-6-hardening-the-kafka-server" class="nav-link">Step 6 — Hardening the Kafka Server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#step-7-installing-kafkat-optional" class="nav-link">Step 7 — Installing KafkaT (Optional)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="installing-kafka-on-ubuntu-2004">Installing Kafka on Ubuntu 20.04</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To follow along, you will need:</p>
+<ul>
+<li>One Ubuntu 20.04 server and a non-root user with sudo privileges. Follow the steps specified in this guide if you do not have a non-root user set up.</li>
+<li>At least 4GB of RAM on your server. Installations without this amount of RAM may cause the Kafka service to fail.</li>
+<li>OpenJDK 11 installed on your server. To install this version, follow our tutorial How To Install Java with APT on Ubuntu 20.04. Kafka is written in Java, so it requires a JVM.</li>
+</ul>
+<h2 id="step-1-creating-a-user-for-kafka">Step 1 — Creating a User for Kafka</h2>
+<p>Because Kafka can handle requests over a network, your first step is to create a dedicated user for the service. This minimizes damage to your Ubuntu machine in the event that someone compromises the Kafka server. We will create a dedicated kafka user in this step.</p>
+<p>Logged in as your non-root sudo user, create a user called kafka:</p>
+<pre><code class="language-bash">    sudo adduser kafka
+</code></pre>
+<p>Follow the prompts to set a password and create the kafka user.</p>
+<p>Next, add the kafka user to the sudo group with the adduser command. You need these privileges to install Kafka’s dependencies:</p>
+<pre><code class="language-bash">    sudo adduser kafka sudo
+</code></pre>
+<p>Your kafka user is now ready. Log into the account using su:</p>
+<pre><code class="language-bash">    su -l kafka
+</code></pre>
+<p>Now that you’ve created a Kafka-specific user, you are ready to download and extract the Kafka binaries.</p>
+<h2 id="step-2-downloading-and-extracting-the-kafka-binaries">Step 2 — Downloading and Extracting the Kafka Binaries</h2>
+<p>Let’s download and extract the Kafka binaries into dedicated folders in our kafka user’s home directory.</p>
+<p>To start, create a directory in /home/kafka called Downloads to store your downloads:</p>
+<pre><code class="language-bash">    mkdir ~/Downloads
+</code></pre>
+<p>Use curl to download the Kafka binaries:</p>
+<pre><code class="language-bash">    curl &quot;https://downloads.apache.org/kafka/2.6.3/kafka_2.13-2.6.3.tgz&quot; -o ~/Downloads/kafka.tgz
+</code></pre>
+<p>Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation:</p>
+<pre><code class="language-bash">    mkdir ~/kafka &amp;&amp; cd ~/kafka
+</code></pre>
+<p>Extract the archive you downloaded using the tar command:</p>
+<pre><code class="language-bash">    tar -xvzf ~/Downloads/kafka.tgz --strip 1
+</code></pre>
+<p>We specify the --strip 1 flag to ensure that the archive’s contents are extracted in ~/kafka/ itself and not in another directory (such as /kafka/kafka_2.13-2.6.3/) inside of it.</p>
+<p>Now that we’ve downloaded and extracted the binaries successfully, we can start configuring our Kafka server.</p>
+<h2 id="step-3-configuring-the-kafka-server">Step 3 — Configuring the Kafka Server</h2>
+<p>Kafka’s default behavior will not allow you to delete a topic. A Kafka topic is the category, group, or feed name to which messages can be published. To modify this, you must edit the configuration file.</p>
+<p>Kafka’s configuration options are specified in server.properties. Open this file with nano or your favorite editor:</p>
+<pre><code class="language-bash">    nano ~/kafka/config/server.properties
+</code></pre>
+<h2 id="step-4-creating-systemd-unit-files-and-starting-the-kafka-server">Step 4 — Creating Systemd Unit Files and Starting the Kafka Server</h2>
+<p>In this section, you will create systemd unit files for the Kafka service. This will help you perform common service actions such as starting, stopping, and restarting Kafka in a manner consistent with other Linux services.</p>
+<p>Zookeeper is a service that Kafka uses to manage its cluster state and configurations. It is used in many distributed systems. If you would like to know more about it, visit the official Zookeeper docs.</p>
+<p>Create the unit file for zookeeper:</p>
+<pre><code class="language-bash">    sudo nano /etc/systemd/system/zookeeper.service
+</code></pre>
+<p>Enter the following unit definition into the file:</p>
+<pre><code class="language-bash">
+    [Unit]
+    Requires=network.target remote-fs.target
+    After=network.target remote-fs.target
+
+    [Service]
+    Type=simple
+    User=kafka
+    ExecStart=/home/kafka/kafka/bin/zookeeper-server-start.sh /home/kafka/kafka/config/zookeeper.properties
+    ExecStop=/home/kafka/kafka/bin/zookeeper-server-stop.sh
+    Restart=on-abnormal
+
+    [Install]
+    WantedBy=multi-user.target
+</code></pre>
+<p>The [Unit] section specifies that Zookeeper requires networking and the filesystem to be ready before it can start.</p>
+<p>The [Service] section specifies that systemd should use the zookeeper-server-start.sh and zookeeper-server-stop.sh shell files for starting and stopping the service. It also specifies that Zookeeper should be restarted if it exits abnormally.</p>
+<p>After adding this content, save and close the file.</p>
+<p>Next, create the systemd service file for kafka:</p>
+<pre><code class="language-bash">    sudo nano /etc/systemd/system/kafka.service
+</code></pre>
+<p>Enter the following unit definition into the file:</p>
+<pre><code class="language-bash">    [Unit]
+    Requires=zookeeper.service
+    After=zookeeper.service
+
+    [Service]
+    Type=simple
+    User=kafka
+    ExecStart=/bin/sh -c '/home/kafka/kafka/bin/kafka-server-start.sh /home/kafka/kafka/config/server.properties &gt; /home/kafka/kafka/kafka.log 2&gt;&amp;1'
+    ExecStop=/home/kafka/kafka/bin/kafka-server-stop.sh
+    Restart=on-abnormal
+
+    [Install]
+    WantedBy=multi-user.target
+</code></pre>
+<p>The [Unit] section specifies that this unit file depends on zookeeper.service. This will ensure that zookeeper gets started automatically when the kafka service starts.</p>
+<p>The [Service] section specifies that systemd should use the kafka-server-start.sh and kafka-server-stop.sh shell files for starting and stopping the service. It also specifies that Kafka should be restarted if it exits abnormally.</p>
+<p>Now that you have defined the units, start Kafka with the following command:</p>
+<pre><code class="language-bash">    sudo systemctl start kafka
+</code></pre>
+<p>You now have a Kafka server listening on port 9092.</p>
+<p>You have started the kafka service. But if you rebooted your server, Kafka would not restart automatically. To enable the kafka service on server boot, run the following commands:</p>
+<pre><code class="language-bash"> sudo systemctl enable zookeeper
+</code></pre>
+<h2 id="step-6-hardening-the-kafka-server">Step 6 — Hardening the Kafka Server</h2>
+<p>With your installation complete, you can remove the kafka user’s admin privileges. Before you do so, log out and log back in as any other non-root sudo user. If you are still running the same shell session that you started this tutorial with, type exit.</p>
+<p>Remove the kafka user from the sudo group:</p>
+<pre><code class="language-bash">    sudo deluser kafka sudo
+</code></pre>
+<p>To further improve your Kafka server’s security, lock the kafka user’s password using the passwd command. This makes sure that nobody can directly log into the server using this account:</p>
+<pre><code class="language-bash">    sudo passwd kafka -l
+</code></pre>
+<p>At this point, only root or a sudo user can log in as kafka by typing in the following command:</p>
+<pre><code class="language-bash">    sudo su - kafka
+</code></pre>
+<p>In the future, if you want to unlock it, use passwd with the -u option:</p>
+<pre><code class="language-bash">    sudo passwd kafka -u
+</code></pre>
+<h2 id="step-7-installing-kafkat-optional">Step 7 — Installing KafkaT (Optional)</h2>
+<p>KafkaT is a tool that Airbnb developed. It makes it easier to view details about your Kafka cluster and perform certain administrative tasks from the command line. But because it is a Ruby gem, you will need Ruby to use it. You will also need the build-essential package to build the other gems that KafkaT depends on. Install them using apt:</p>
+<pre><code class="language-bash">    sudo apt install ruby ruby-dev build-essential
+</code></pre>
+<p>You can now install KafkaT using the gem command:</p>
+<pre><code class="language-bash">    sudo CFLAGS=-Wno-error=format-overflow gem install kafkat
+</code></pre>
+<p>The “Wno-error=format-overflow” compilation flag is required to suppress Zookeeper’s warnings and errors during kafkat’s installation process.</p>
+<p>KafkaT uses .kafkatcfg as the configuration file to determine the installation and log directories of your Kafka server. It should also have an entry pointing KafkaT to your ZooKeeper instance.</p>
+<p>Create a new file called .kafkatcfg:</p>
+<pre><code class="language-bash">    nano ~/.kafkatcfg
+</code></pre>
+<p>Add the following lines to specify the required information about your Kafka server and Zookeeper instance:</p>
+<pre><code class="language-json">{
+  &quot;kafka_path&quot;: &quot;~/kafka&quot;,
+  &quot;log_path&quot;: &quot;/home/kafka/logs&quot;,
+  &quot;zk_path&quot;: &quot;localhost:2181&quot;
+}
+</code></pre>
+<p>You are now ready to use KafkaT. For a start, here’s how you would use it to view details about all Kafka partitions:</p>
+<pre><code class="language-bash">    kafkat partitions
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
