@@ -27,7 +27,7 @@ This setup assumes you have already installed postgres in two machines; One mast
 - Create the replication user
 ```bash
     sudo -H -u postgres psql -c "CREATE USER <user> WITH replication;"
-    sudo -H -u postgres psql -c "UPDATE USER <user> WITH ENCRYPTED PASSWORD <password>;"
+    sudo -H -u postgres psql -c "ALTER USER <user> WITH ENCRYPTED PASSWORD <password>;"
 ```
 
 - Restart the main cluster
