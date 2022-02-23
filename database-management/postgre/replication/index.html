@@ -210,7 +210,7 @@
 <li>Create the replication user</li>
 </ul>
 <pre><code class="language-bash">    sudo -H -u postgres psql -c &quot;CREATE USER &lt;user&gt; WITH replication;&quot;
-    sudo -H -u postgres psql -c &quot;UPDATE USER &lt;user&gt; WITH ENCRYPTED PASSWORD &lt;password&gt;;&quot;
+    sudo -H -u postgres psql -c &quot;ALTER USER &lt;user&gt; WITH ENCRYPTED PASSWORD &lt;password&gt;;&quot;
 </code></pre>
 <ul>
 <li>Restart the main cluster</li>
