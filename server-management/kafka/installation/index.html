@@ -224,7 +224,7 @@
 </code></pre>
 <p>Follow the prompts to set a password and create the kafka user.</p>
 <p>Next, add the kafka user to the sudo group with the adduser command. You need these privileges to install Kafka’s dependencies:</p>
-<pre><code class="language-bash">    sudo adduser kafka sudo
+<pre><code class="language-bash">    sudo usermod -aG sudo kafka
 </code></pre>
 <p>Your kafka user is now ready. Log into the account using su:</p>
 <pre><code class="language-bash">    su -l kafka
@@ -233,16 +233,16 @@
 <h2 id="step-2-downloading-and-extracting-the-kafka-binaries">Step 2 — Downloading and Extracting the Kafka Binaries</h2>
 <p>Let’s download and extract the Kafka binaries into dedicated folders in our kafka user’s home directory.</p>
 <p>To start, create a directory in /home/kafka called Downloads to store your downloads:</p>
-<pre><code class="language-bash">    mkdir ~/Downloads
+<pre><code class="language-bash">    mkdir ~/downloads
 </code></pre>
 <p>Use curl to download the Kafka binaries:</p>
-<pre><code class="language-bash">    curl &quot;https://downloads.apache.org/kafka/2.6.3/kafka_2.13-2.6.3.tgz&quot; -o ~/Downloads/kafka.tgz
+<pre><code class="language-bash">    curl &quot;https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz&quot; -o ~/downloads/kafka.tgz
 </code></pre>
 <p>Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation:</p>
-<pre><code class="language-bash">    mkdir ~/kafka &amp;&amp; cd ~/kafka
+<pre><code class="language-bash">    sudo mkdir /usr/src/kafka &amp;&amp; cd /usr/src/kafka
 </code></pre>
 <p>Extract the archive you downloaded using the tar command:</p>
-<pre><code class="language-bash">    tar -xvzf ~/Downloads/kafka.tgz --strip 1
+<pre><code class="language-bash">    sudo tar -xvzf ~/downloads/kafka.tgz --strip 1
 </code></pre>
 <p>We specify the --strip 1 flag to ensure that the archive’s contents are extracted in ~/kafka/ itself and not in another directory (such as /kafka/kafka_2.13-2.6.3/) inside of it.</p>
 <p>Now that we’ve downloaded and extracted the binaries successfully, we can start configuring our Kafka server.</p>
