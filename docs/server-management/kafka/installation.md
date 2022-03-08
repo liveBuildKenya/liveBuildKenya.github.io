@@ -21,7 +21,7 @@ Follow the prompts to set a password and create the kafka user.
 Next, add the kafka user to the sudo group with the adduser command. You need these privileges to install Kafka’s dependencies:
 
 ```bash
-    sudo adduser kafka sudo
+    sudo usermod -aG sudo kafka
 ```
 
 Your kafka user is now ready. Log into the account using su:
@@ -39,25 +39,25 @@ Let’s download and extract the Kafka binaries into dedicated folders in our ka
 To start, create a directory in /home/kafka called Downloads to store your downloads:
 
 ```bash
-    mkdir ~/Downloads
+    mkdir ~/downloads
 ```
 
 Use curl to download the Kafka binaries:
 
 ```bash
-    curl "https://downloads.apache.org/kafka/2.6.3/kafka_2.13-2.6.3.tgz" -o ~/Downloads/kafka.tgz
+    curl "https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz" -o ~/downloads/kafka.tgz
 ```
 
 Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation:
 
 ```bash
-    mkdir ~/kafka && cd ~/kafka
+    sudo mkdir /usr/src/kafka && cd /usr/src/kafka
 ```
 
 Extract the archive you downloaded using the tar command:
 
 ```bash
-    tar -xvzf ~/Downloads/kafka.tgz --strip 1
+    sudo tar -xvzf ~/downloads/kafka.tgz --strip 1
 ```
 
 We specify the --strip 1 flag to ensure that the archive’s contents are extracted in ~/kafka/ itself and not in another directory (such as /kafka/kafka_2.13-2.6.3/) inside of it.
